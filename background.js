@@ -26,7 +26,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                 });
         });
 
-        // Return true to indicate that we will respond asynchronously
+
         return true;
     }
 });

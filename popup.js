@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Check if token is already saved
+
     chrome.storage.sync.get('todoistToken', function (data) {
         if (!data.todoistToken) {
-            // If no token is saved, prompt user to enter it
+
             document.body.innerHTML = `
                 <h3>Video To-Do List</h3>
                 <input type="password" id="todoist-token" placeholder="Enter your Todoist API token" />
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     chrome.storage.sync.set({ todoistToken: token }, function () {
                         console.log('Token saved');
                         showStatus('Token saved! You can now add tasks.', 'success');
-                        // After saving, reload the popup with task options
+
                         setTimeout(() => location.reload(), 2000);
                     });
                 } else {
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         } else {
-            // Token is saved, show task button
+
             document.body.innerHTML = `
                 <h3>Video To-Do List</h3>
                 <p id="status"></p>
@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Function to show status messages with effects
+
 function showStatus(message, type) {
     const statusElement = document.getElementById('status');
     statusElement.textContent = message;
-    statusElement.className = type; // 'success' or 'error'
+    statusElement.className = type;
     setTimeout(() => {
         statusElement.textContent = '';
         statusElement.className = '';
-    }, 3000); // Clear message after 3 seconds
+    }, 3000);
 }

@@ -1,9 +1,9 @@
-// Retrieve the Todoist token and set up the button
+
 chrome.storage.sync.get('todoistToken', function (data) {
     if (data.todoistToken) {
         const todoistToken = data.todoistToken;
 
-        // Create and inject the button on the page
+
         const button = document.createElement('button');
         button.textContent = 'Add to Todoist';
         button.style.position = 'fixed';
