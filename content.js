@@ -20,7 +20,6 @@ chrome.storage.sync.get('todoistToken', function (data) {
     }
 });
 
-// Function to add video to Todoist
 function addVideoToTodoist(todoistToken) {
     const videoUrl = window.location.href;
     const videoTitle = document.title;
